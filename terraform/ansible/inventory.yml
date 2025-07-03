@@ -1,0 +1,25 @@
+all:
+  hosts:
+    frontend:
+      ansible_host: 13.37.215.217
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/my-terraform-key
+    backend:
+      ansible_host: 13.37.249.140
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/my-terraform-key
+    database:
+      ansible_host: 172.31.34.238
+      ansible_user: ubuntu
+      ansible_ssh_private_key_file: ~/.ssh/my-terraform-key
+      
+  children:
+    frontend_group:
+      hosts:
+        frontend:
+    backend_group:
+      hosts:
+        backend:
+    database_group:
+      hosts:
+        database:

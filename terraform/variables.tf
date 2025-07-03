@@ -13,10 +13,10 @@ variable "instance_type" {
 
 variable "public_key_path" {
   description = "Chemin vers la clé publique SSH"
-  default     = "~/.ssh/my-terraform-key.pub"
+  default     = ".ssh/terra.pub"
 }
 
 variable "private_key_path" {
   description = "Chemin vers la clé privée SSH"
-  default     = "~/.ssh/my-terraform-key"
+  default     = ".ssh/terra"
 }
