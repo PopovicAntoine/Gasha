@@ -1,3 +1,8 @@
 - name: Ping
-  hosts: myhosts
-  
+  hosts: hosts
+  tasks: 
+    - name: Ping
+      ansible.builtin.ping:
+    - name: Print
+      ansible.builtin.debug:
+        msg: Hello world
