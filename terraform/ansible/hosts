@@ -1,4 +1,0 @@
-  [ec2]
-  13.38.229.3 ansible_user=ec2_user ansible_ssh_private_key_file=./terra.pem
-  13.39.47.77 ansible_user=ec2_user ansible_ssh_private_key_file=./terra.pem
-  172.31.40.14 ansible_user=ec2_user ansible_ssh_private_key_file=./terra.pem
