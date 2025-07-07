@@ -1,0 +1,46 @@
+name: CI/CD with Ansible
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run unit tests
+      run: |
+        pytest
+
+    - name: Install Ansible
+      run: |
+        pip install ansible
+
+    - name: Deploy with Ansible
+      env:
+        ANSIBLE_HOST_KEY_CHECKING: 'False'
+      run: |
+        ansible-playbook -i inventory.ini playbook.yml
+      # Auth via SSH private key
+      shell: bash
+      continue-on-error: false
+      working-directory: ./ansible
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
