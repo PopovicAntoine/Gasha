@@ -1,7 +1,4 @@
-#variable "vpc_id"{
-#    description = "VPC-ID"
-#    default = "vpc-0d675b07c1a635fa5"
-#}
+
 resource "aws_vpc" "monitoring" {
   cidr_block = "10.0.0.0/16"
 }

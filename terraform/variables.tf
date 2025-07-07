@@ -5,7 +5,7 @@ variable "aws_region" {
 }
 variable "ami_id" {
   description = "Amazon Linux 2023 kernel-6.1 AMI"
-  default     = "ami-0f8d3c5dcfaceaa4f"
+  default     = "{{certs.ami-id}}"
 }
 variable "instance_type" {
   default = "t3.micro"
@@ -23,6 +23,6 @@ variable "private_key_path" {
 
 variable "account_id" {
   description = "Hard coded value AWS account"
-  default     = "2781-1922-3983"
+  default     = "{{certs.account-aws-id}}"
 
 }

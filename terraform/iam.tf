@@ -34,7 +34,7 @@ resource "aws_iam_policy" "ec2_policy" {
           "ssm:GetParameters",
           "ssm:GetParameter"
         ],
-        Resource = "arn:aws:ssm:eu-west-3:2781-1922-3983:parameter/app-1*"
+        Resource = "arn:aws:ssm:eu-west-3:{{certs.account-aws-id}}:parameter/app-1*"
       },
       {
         "Effect" : "Allow",
